@@ -3,7 +3,7 @@
 import RealmSwift
 
 extension ___VARIABLE_modulePrefix___Service {
-    public func update___VARIABLE_entityName___s(_ ___VARIABLE_entityName:identifier___s: [___VARIABLE_entityName___Model], _ completion: (() -> Void)?) {
+    public func update___VARIABLE_entityName___s(_ ___VARIABLE_entityName:identifier___s: [___VARIABLE_entityName___Model], _ completion: (() -> Void)? = nil) {
         DispatchQueue.global(qos: .background).sync { [weak self] in
             guard let realmConfig = self?.realmConfig else { return }
             

@@ -24,7 +24,7 @@ extension ___VARIABLE_modulePrefix___Service {
         return realm?.objects(___VARIABLE_entityName___Object.self).count ?? 0
     }
     
-    public func ___VARIABLE_entityName___(modelAtIndex index: Int) -> Promise<___VARIABLE_entityName___Model?>? {
+    public func ___VARIABLE_entityName:identifier___(modelAtIndex index: Int) -> Promise<___VARIABLE_entityName___Model?>? {
         DispatchQueue.global(qos: .userInitiated).async(.promise) { [weak self] in
             guard let realmConfig = self?.realmConfig else { return nil }
             
