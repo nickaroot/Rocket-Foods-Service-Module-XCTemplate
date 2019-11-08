@@ -1,0 +1,8 @@
+sources:
+    - Entities/
+templates:
+    - ../Templates
+output:
+    path: Entities/
+args:
+    services: ""
