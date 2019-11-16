@@ -6,3 +6,4 @@ output:
     path: Entities/
 args:
     services: ""
+    description: "modelDescription"

@@ -3,39 +3,39 @@
 import RealmSwift
 
 extension ___VARIABLE_modulePrefix___Service {
-    public func update___VARIABLE_entityName___s(_ ___VARIABLE_entityName:identifier___s: [___VARIABLE_entityName___Model], _ completion: (() -> Void)? = nil) {
+    public func update___VARIABLE_entitiesCapitalized___(_ ___VARIABLE_entitiesLowercased___: [___VARIABLE_entityCapitalized___Model], _ completion: (() -> Void)? = nil) {
         DispatchQueue.global(qos: .background).sync { [weak self] in
             guard let realmConfig = self?.realmConfig else { return }
             
             let realm = try? Realm(configuration: realmConfig)
             
             try? realm?.write {
-                realm?.add(___VARIABLE_entityName:identifier___s, update: .all)
+                realm?.add(___VARIABLE_entitiesLowercased___, update: .all)
                 completion?()
             }
         }
     }
     
-    public func add___VARIABLE_entityName___s(_ ___VARIABLE_entityName:identifier___: ___VARIABLE_entityName___Model) {
+    public func add___VARIABLE_entityCapitalized___(_ ___VARIABLE_entityLowercased___: ___VARIABLE_entityCapitalized___Model) {
         DispatchQueue.global(qos: .background).sync { [weak self] in
             guard let realmConfig = self?.realmConfig else { return }
             
             let realm = try? Realm(configuration: realmConfig)
             
             try? realm?.write {
-                realm?.add(___VARIABLE_entityName:identifier___, update: .modified)
+                realm?.add(___VARIABLE_entityLowercased___, update: .modified)
             }
         }
     }
     
-    public func delete___VARIABLE_entityName___(_ ___VARIABLE_entityName:identifier___: ___VARIABLE_entityName___Model) {
+    public func delete___VARIABLE_entityCapitalized___(_ ___VARIABLE_entityLowercased___: ___VARIABLE_entityCapitalized___Model) {
         DispatchQueue.global(qos: .background).sync { [weak self] in
             guard let realmConfig = self?.realmConfig else { return }
             
             let realm = try? Realm(configuration: realmConfig)
             
             try? realm?.write {
-                realm?.delete(___VARIABLE_entityName:identifier___)
+                realm?.delete(___VARIABLE_entityLowercased___)
             }
         }
     }

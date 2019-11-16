@@ -12,7 +12,7 @@ public class ___VARIABLE_modulePrefix___Service: NSObject {
     let realmConfig: Realm.Configuration = {
         var config = Realm.Configuration()
         
-        config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("___VARIABLE_entityName___s.realm")
+        config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("___VARIABLE_entitiesCapitalized___.realm")
         config.deleteRealmIfMigrationNeeded = true
         
         return config

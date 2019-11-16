@@ -56,10 +56,11 @@
 					<array>
 						<string>.sourcery.yml</string>
 						<string>___VARIABLE_modulePrefix___Service.swift</string>
-						<string>___VARIABLE_modulePrefix___Service+___VARIABLE_entityName___s.swift</string>
+						<string>___VARIABLE_modulePrefix___Service+___VARIABLE_entitiesCapitalized___.swift</string>
 						<string>___VARIABLE_modulePrefix___Service+Realm.swift</string>
 						<string>___VARIABLE_modulePrefix___Service+Requests.swift</string>
-						<string>Entities/___VARIABLE_entityName___Model.swift</string>
+						<string>Entities/___VARIABLE_entityCapitalized___Model.swift</string>
+						<string>Entities/Generated/___VARIABLE_entityCapitalized___Object.swift</string>
 					</array>
 				</dict>
 			</dict>
@@ -84,11 +85,65 @@
 		</dict>
 		<dict>
 			<key>Identifier</key>
-			<string>entityName</string>
+			<string>entityCapitalized</string>
 			<key>Name</key>
-			<string>Entity</string>
+			<string>Entity Name Capitalized</string>
 			<key>Description</key>
-			<string>Enter entity name</string>
+			<string>Enter entity name capitalized</string>
+			<key>Type</key>
+			<string>text</string>
+			<key>Required</key>
+			<true/>
+			<key>NotPersisted</key>
+			<false/>
+			<key>SortOrder</key>
+			<integer>100</integer>
+			<key>Default</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>entityLowercased</string>
+			<key>Name</key>
+			<string>Entity Name Lowercased</string>
+			<key>Description</key>
+			<string>Enter entity name lowercased</string>
+			<key>Type</key>
+			<string>text</string>
+			<key>Required</key>
+			<true/>
+			<key>NotPersisted</key>
+			<false/>
+			<key>SortOrder</key>
+			<integer>100</integer>
+			<key>Default</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>entitiesCapitalized</string>
+			<key>Name</key>
+			<string>Entities Name Capitalized</string>
+			<key>Description</key>
+			<string>Enter entities name capitalized</string>
+			<key>Type</key>
+			<string>text</string>
+			<key>Required</key>
+			<true/>
+			<key>NotPersisted</key>
+			<false/>
+			<key>SortOrder</key>
+			<integer>100</integer>
+			<key>Default</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>entitiesLowercased</string>
+			<key>Name</key>
+			<string>Entities Name Lowercased</string>
+			<key>Description</key>
+			<string>Enter entities name lowercased</string>
 			<key>Type</key>
 			<string>text</string>
 			<key>Required</key>
@@ -141,8 +196,12 @@
 				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
 				<key>FRAMEWORK_SEARCH_PATHS</key>
 				<string>$(inherited) $(PROJECT_DIR)/Carthage/Build/iOS</string>
+				<key>TARGETED_DEVICE_FAMILY</key>
+				<string>1</string>
 				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
 				<string>11.0</string>
+				<key>SUPPORTS_MACCATALYST</key>
+				<string>NO</string>
 			</dict>
 		</dict>
 	</array>
@@ -169,10 +228,10 @@
 			<key>Path</key>
 			<string>___VARIABLE_modulePrefix___Service.swift</string>
 		</dict>
-		<key>___VARIABLE_modulePrefix___Service+___VARIABLE_entityName___s.swift</key>
+		<key>___VARIABLE_modulePrefix___Service+___VARIABLE_entitiesCapitalized___.swift</key>
 		<dict>
 			<key>Path</key>
-			<string>___VARIABLE_modulePrefix___Service+___VARIABLE_entityName___s.swift</string>
+			<string>___VARIABLE_modulePrefix___Service+___VARIABLE_entitiesCapitalized___.swift</string>
 		</dict>
 		<key>___VARIABLE_modulePrefix___Service+Realm.swift</key>
 		<dict>
@@ -184,13 +243,23 @@
 			<key>Path</key>
 			<string>___VARIABLE_modulePrefix___Service+Requests.swift</string>
 		</dict>
-		<key>Entities/___VARIABLE_entityName___Model.swift</key>
+		<key>Entities/___VARIABLE_entityCapitalized___Model.swift</key>
 		<dict>
 			<key>Path</key>
-			<string>Entities/___VARIABLE_entityName___Model.swift</string>
+			<string>Entities/___VARIABLE_entityCapitalized___Model.swift</string>
 			<key>Group</key>
 			<array>
 				<string>Entities</string>
+			</array>
+		</dict>
+		<key>Entities/Generated/___VARIABLE_entityCapitalized___Object.swift</key>
+		<dict>
+			<key>Path</key>
+			<string>Entities/Generated/___VARIABLE_entityCapitalized___Object.swift</string>
+			<key>Group</key>
+			<array>
+				<string>Entities</string>
+				<string>Generated</string>
 			</array>
 		</dict>
 	</dict>
