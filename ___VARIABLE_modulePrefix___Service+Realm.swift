@@ -11,8 +11,9 @@ extension ___VARIABLE_modulePrefix___Service {
             
             try? realm?.write {
                 realm?.add(___VARIABLE_entitiesLowercased___, update: .all)
-                completion?()
             }
+
+            completion?()
         }
     }
     
