@@ -4,6 +4,10 @@ import RealmSwift
 import RFExtensions
 
 public struct ___VARIABLE_entityCapitalized___Model: Codable, Persistable {
-    <#fields#>
+    public var persistOrderId: Int? = nil
+    
+//    private enum CodingKeys: String, CodingKey {
+//        case property
+//    }
 }
 

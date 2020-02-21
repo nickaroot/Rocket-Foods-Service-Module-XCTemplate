@@ -1,19 +1,24 @@
 // ___FILEHEADER___
 
+import PromiseKit
 import RealmSwift
 
 extension ___VARIABLE_modulePrefix___Service {
-    public func update___VARIABLE_entitiesCapitalized___(_ ___VARIABLE_entitiesLowercased___: [___VARIABLE_entityCapitalized___Model], _ completion: (() -> Void)? = nil) {
-        DispatchQueue.global(qos: .background).sync { [weak self] in
-            guard let realmConfig = self?.realmConfig else { return }
-            
-            let realm = try? Realm(configuration: realmConfig)
-            
-            try? realm?.write {
-                realm?.add(___VARIABLE_entitiesLowercased___, update: .all)
-            }
+    public func update___VARIABLE_entitiesCapitalized___(_ ___VARIABLE_entitiesLowercased___: [___VARIABLE_entityCapitalized___Model]) -> Promise<Void> {
+        Promise { [weak self] in
+            DispatchQueue.global(qos: .background).sync {
+                guard let realmConfig = self?.realmConfig else {
+                    return seal.reject(PMKError.cancelled)
+                }
+                
+                let realm = try? Realm(configuration: realmConfig)
+                
+                try? realm?.write {
+                    realm?.add(___VARIABLE_entitiesLowercased___, update: .all)
+                }
 
-            completion?()
+                seal.fulfill(())
+            }
         }
     }
     

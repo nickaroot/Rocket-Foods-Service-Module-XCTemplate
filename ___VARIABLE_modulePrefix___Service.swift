@@ -1,13 +1,12 @@
 // ___FILEHEADER___
 
-import KeychainAccess
-import KeychainExtension
 import RealmSwift
+import RFBaseService
+import RFAuthService
 
-public class ___VARIABLE_modulePrefix___Service: NSObject {
-    public let host: String
-    
-    public var keychain: Keychain?
+public class ___VARIABLE_modulePrefix___Service {
+    public var api: API!
+    public var authService: RFAuthService!
     
     let realmConfig: Realm.Configuration = {
         var config = Realm.Configuration()
@@ -18,10 +17,6 @@ public class ___VARIABLE_modulePrefix___Service: NSObject {
         return config
     }()
     
-    public init(_ host: String) {
-        self.host = host
-        
-        super.init()
-    }
+    public init() { }
 }
 
