@@ -5,13 +5,11 @@ import RealmSwift
 
 extension ___VARIABLE_modulePrefix___Service {
     public func update___VARIABLE_entitiesCapitalized___(_ ___VARIABLE_entitiesLowercased___: [___VARIABLE_entityCapitalized___Model]) -> Promise<Void> {
-        Promise { [weak self] in
+        Promise { [realmConfig] in
             DispatchQueue.global(qos: .background).sync {
-                guard let realmConfig = self?.realmConfig else {
+                guard let realm = try? Realm(configuration: realmConfig) else {
                     return seal.reject(PMKError.cancelled)
                 }
-                
-                let realm = try? Realm(configuration: realmConfig)
                 
                 try? realm?.write {
                     realm?.add(___VARIABLE_entitiesLowercased___, update: .all)
@@ -23,10 +21,8 @@ extension ___VARIABLE_modulePrefix___Service {
     }
     
     public func add___VARIABLE_entityCapitalized___(_ ___VARIABLE_entityLowercased___: ___VARIABLE_entityCapitalized___Model) {
-        DispatchQueue.global(qos: .background).sync { [weak self] in
-            guard let realmConfig = self?.realmConfig else { return }
-            
-            let realm = try? Realm(configuration: realmConfig)
+        DispatchQueue.global(qos: .background).sync { [realmConfig] in
+            guard let realm = try? Realm(configuration: realmConfig) else { return }
             
             try? realm?.write {
                 realm?.add(___VARIABLE_entityLowercased___, update: .modified)
@@ -35,10 +31,8 @@ extension ___VARIABLE_modulePrefix___Service {
     }
     
     public func delete___VARIABLE_entityCapitalized___(_ ___VARIABLE_entityLowercased___: ___VARIABLE_entityCapitalized___Model) {
-        DispatchQueue.global(qos: .background).sync { [weak self] in
-            guard let realmConfig = self?.realmConfig else { return }
-            
-            let realm = try? Realm(configuration: realmConfig)
+        DispatchQueue.global(qos: .background).sync { [realmConfig] in
+            guard let realm = try? Realm(configuration: realmConfig) else { return }
             
             try? realm?.write {
                 realm?.delete(___VARIABLE_entityLowercased___)
@@ -46,11 +40,9 @@ extension ___VARIABLE_modulePrefix___Service {
         }
     }
     
-    public func clear() {
-        DispatchQueue.global(qos: .background).async { [weak self] in
-            guard let realmConfig = self?.realmConfig else { return }
-            
-            let realm = try? Realm(configuration: realmConfig)
+    public func clearAll() {
+        DispatchQueue.global(qos: .background).async { [realmConfig] in
+            guard let realm = try? Realm(configuration: realmConfig) else { return }
             
             try? realm?.write {
                 realm?.deleteAll()

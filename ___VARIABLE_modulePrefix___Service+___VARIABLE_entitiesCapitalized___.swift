@@ -4,9 +4,9 @@ import RealmSwift
 
 extension ___VARIABLE_modulePrefix___Service {
     public func all___VARIABLE_entitiesCapitalized___() -> [___VARIABLE_entityCapitalized___Model] {
-        let realm = try? Realm(configuration: realmConfig)
+        guard let realm = try? Realm(configuration: realmConfig) else { return [] }
         
-        guard let objects = realm?.objects(___VARIABLE_entityCapitalized___Object.self).sorted(byKeyPath: "id") else { return [] }
+        let objects = realm?.objects(___VARIABLE_entityCapitalized___Object.self).sortedByPersistOrder
         
         let ___VARIABLE_entitiesLowercased___ = Array(objects).compactMap { ___VARIABLE_entityCapitalized___Model($0) }
         
@@ -14,16 +14,17 @@ extension ___VARIABLE_modulePrefix___Service {
     }
     
     public func ___VARIABLE_entitiesLowercased___Count() -> Int {
-        let realm = try? Realm(configuration: realmConfig)
+        guard let realm = try? Realm(configuration: realmConfig) else { return 0 }
         
-        return realm?.objects(___VARIABLE_entityCapitalized___Object.self).count ?? 0
+        return realm?.objects(___VARIABLE_entityCapitalized___Object.self).count
     }
     
     public func ___VARIABLE_entityLowercased___(modelAtIndex index: Int) -> ___VARIABLE_entityCapitalized___Model? {
-        let realm = try? Realm(configuration: realmConfig)
+        guard let realm = try? Realm(configuration: realmConfig) else { return nil }
         
-        guard let count = realm?.objects(___VARIABLE_entityCapitalized___Object.self).count, index < count,
-            let object = realm?.objects(___VARIABLE_entityCapitalized___Object.self)[index] else { return nil }
+        guard index < realm.objects(___VARIABLE_entityCapitalized___Object.self).count else { return nil }
+        
+        let object = realm?.objects(___VARIABLE_entityCapitalized___Object.self).sortedByPersistOrder[index]
         
         let model = ___VARIABLE_entityCapitalized___Model(object)
         
