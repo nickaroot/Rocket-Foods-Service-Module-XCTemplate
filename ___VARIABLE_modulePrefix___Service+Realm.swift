@@ -11,8 +11,8 @@ extension ___VARIABLE_modulePrefix___Service {
                     return seal.reject(PMKError.cancelled)
                 }
                 
-                try? realm?.write {
-                    realm?.add(___VARIABLE_entitiesLowercased___, update: .all)
+                try? realm.write {
+                    realm.add(___VARIABLE_entitiesLowercased___, update: .all)
                 }
 
                 seal.fulfill(())
@@ -24,8 +24,8 @@ extension ___VARIABLE_modulePrefix___Service {
         DispatchQueue.global(qos: .background).sync { [realmConfig] in
             guard let realm = try? Realm(configuration: realmConfig) else { return }
             
-            try? realm?.write {
-                realm?.add(___VARIABLE_entityLowercased___, update: .modified)
+            try? realm.write {
+                realm.add(___VARIABLE_entityLowercased___, update: .modified)
             }
         }
     }
@@ -34,8 +34,8 @@ extension ___VARIABLE_modulePrefix___Service {
         DispatchQueue.global(qos: .background).sync { [realmConfig] in
             guard let realm = try? Realm(configuration: realmConfig) else { return }
             
-            try? realm?.write {
-                realm?.delete(___VARIABLE_entityLowercased___)
+            try? realm.write {
+                realm.delete(___VARIABLE_entityLowercased___)
             }
         }
     }
@@ -44,8 +44,8 @@ extension ___VARIABLE_modulePrefix___Service {
         DispatchQueue.global(qos: .background).async { [realmConfig] in
             guard let realm = try? Realm(configuration: realmConfig) else { return }
             
-            try? realm?.write {
-                realm?.deleteAll()
+            try? realm.write {
+                realm.deleteAll()
             }
         }
     }
