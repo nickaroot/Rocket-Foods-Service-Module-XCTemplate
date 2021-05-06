@@ -6,6 +6,7 @@ import RFBaseService
 import RFAuthService
 
 public class ___VARIABLE_modulePrefix___Service: InjectableService {
+    public typealias Model = ___VARIABLE_entityCapitalized___Model
     
     @Inject
     public var api: API
